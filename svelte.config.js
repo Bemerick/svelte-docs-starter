@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
-import adapter from '@sveltejs/adapter-vercel';
+
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,5 +17,7 @@ const config = {
 		adapter: adapter()
 	}
 };
+
+
 
 export default config;
