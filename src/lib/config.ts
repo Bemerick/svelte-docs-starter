@@ -12,7 +12,7 @@ import type { Feature, PromoConfig, SiteConfig } from "./types/config";
 
 export const siteConfig: SiteConfig = {
     version: '0.0.1',
-    title: 'Documentation',
+    title: 'GPPA Documentation',
     description:
         'Comprehensive documentation for your project. Built with Svelte 5, MDSvex, Tailwind CSS, and shadcn/ui components.',
     github: 'https://github.com/code-gio/svelte-firekit-docs',
