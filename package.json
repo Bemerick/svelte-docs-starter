@@ -37,7 +37,7 @@
 		"tailwindcss-animate": "^1.0.7",
 		"typescript": "^5.0.0",
 		"vite": "^6.0.0",
-		"wrangler": "^4.12.1"
+		"wrangler": "^3.114.3"
 	},
 	"dependencies": {
 		"flexsearch": "^0.7.43",
