@@ -82,6 +82,7 @@ Use job aid, **Instructions for Processing Personnel Actions on Placement in Non
     import { Ch15placements } from '$lib/components/ui/custom/';
      import { Ch15remarks } from '$lib/components/ui/custom/';
      import { TreeDiagram } from '$lib/components/ui/custom/';
+      import { RemarksTreeDiagram } from '$lib/components/ui/custom/';
   
 </script>
 
@@ -106,6 +107,7 @@ This job aid provides information on how nonpay status affects certain personnel
 Table 15-A. Documenting Placements in Nonpay or Nonduty Status and Written Warnings
 
 <TreeDiagram />
+<RemarksTreeDiagram />
 <Ch15placements />
 
 ## Remarks
