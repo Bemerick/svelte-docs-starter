@@ -40,12 +40,12 @@ export let socialLinks: SocialLink[] = [
 
     {
         title: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/giovanirodriguez26/',
+        href: 'https://www.linkedin.com/in/robertjemerick/',
         icon: 'linkedin'
     },
     {
         title: 'GitHub',
-        href: 'https://github.com/code-gio',
+        href: 'https://github.com/bemerick',
         icon: 'github'
     },
 
@@ -55,23 +55,23 @@ export let socialLinks: SocialLink[] = [
 export const features: Feature[] = [
     {
         icon: Boxes,
-        title: 'Component Library',
-        description: 'Built on top of shadcn/ui, offering comprehensive accessible components with complete documentation'
+        title: 'GPPA Documentation',
+        description: 'Full documentation for the Guide to Personnel Action Processing'
     },
     {
         icon: Workflow,
-        title: 'Type Safe',
-        description: 'Fully typed with TypeScript, providing excellent IDE support and reliable development experience'
+        title: 'Secure Processing',
+        description: 'Cloud based deployment in secure environment'
     },
     {
         icon: Paintbrush,
-        title: 'Fully Customizable',
-        description: 'Easily customize themes, layouts, and components to match your brand identity and requirements'
+        title: 'GPPA Tools',
+        description: 'Interactive tools to enable access to specific personnel action steps and NOA codes.'
     },
     {
         icon: Zap,
         title: 'Fast & Modern',
-        description: 'Powered by Svelte 5, MDSvex, and TailwindCSS for optimal performance and developer experience'
+        description: 'Powered by Svelte 5, MDSvex, and TailwindCSS for optimal performance and user experience'
     }
 ];
 
