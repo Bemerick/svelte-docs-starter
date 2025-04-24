@@ -9,7 +9,7 @@ description: Complete table of contents for the GPPA
 1. Subchapter 1. Introduction to this **Guide**
 1. Subchapter 2. How to Use this **Guide**
 
-Chapter 2. **Reserved**
+**Chapter 2. Reserved**
 
 [Chapter 3. General Instructions for Processing Personnel Actions](http://www.opm.gov/feddata/gppa/gppa03.pdf)
 
@@ -29,7 +29,7 @@ Chapter 2. **Reserved**
 1. Notifying Employees of Personnel Actions
 1. Data Collection on Race and National Origin and Identification of Handicap
 
-Chapter 5. **Reserved**
+**Chapter 5. Reserved**
 
 [Chapter 6. Creditable Service for Leave Accrual](https://opm-gpa.netlify.app/docs/GPPA/chapter1.6)
 
@@ -44,7 +44,7 @@ Chapter 5. **Reserved**
 1. Subchapter 1. General Instructions
 2. Subchapter 2. Change in Veterans’ Preference for Reduction in Force
 
-Table of Contents (continued) Chapter 8. **Reserved**
+**Chapter 8. Reserved**
 
 [Chapter 9. Career and Career-Conditional Appointments](http://www.opm.gov/feddata/gppa/gppa09.pdf)
 
@@ -63,7 +63,7 @@ Table of Contents (continued) Chapter 8. **Reserved**
 2. Definitions
 3. Special Conditions
 
-Chapter 12. **Reserved**
+**Chapter 12. Reserved**
 
 [Chapter 13. Senior Executive Service (SES)](http://www.opm.gov/feddata/gppa/gppa13.pdf)
 
@@ -150,7 +150,7 @@ Chapter 12. **Reserved**
 1. Definitions
 1. Instructions
 
-Chapter 25. **Reserved**
+**Chapter 25. Reserved**
 
 [Chapter 26. Change in Tenure](http://www.opm.gov/feddata/gppa/gppa26.pdf)
 
