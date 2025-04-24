@@ -24,7 +24,7 @@ export const siteConfig: SiteConfig = {
     ],
     logo: '/logo.svg',
     logoDark: '/logo-white.svg',
-    favicon: '/favicon.png',
+    favicon: '/favicon.ico',
 };
 
 
