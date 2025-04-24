@@ -6,3 +6,4 @@ export {default as TreeDiagram} from "./TreeDiagram.svelte";
 export {default as RemarksTreeDiagram} from "./RemarksTreeDiagram.svelte";
 export {default as GHHRCh2Steps} from "./GHHRCh2Steps.svelte";
 export {default as SearchableTreeDiagram} from "./SearchableTreeDiagram.svelte";
+export {default as HRDynamicsSpec} from "./HRDynamicsSpec.svelte";
