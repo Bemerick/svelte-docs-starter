@@ -1,5 +1,5 @@
 ---
-title: GHR Dynamics Spec
+title: HR Dynamics Spec
 description: Specification File for HR Dynamics
 ---
 
