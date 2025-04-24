@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
         { title: 'Examples', href: '/docs/examples' }
     ],
     logo: '/logo.svg',
-    logoDark: '/logo-white.svg',
+    logoDark: '/logo.svg',
     favicon: '/favicon.ico',
 };
 
