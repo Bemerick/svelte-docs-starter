@@ -12,7 +12,7 @@ import type { Feature, PromoConfig, SiteConfig } from "./types/config";
 
 export const siteConfig: SiteConfig = {
     version: '0.0.1',
-    title: 'Guide to Processing Personnel Actions (GPPA)',
+    title: 'OPM’s Requirements for Federal HR Reporting',
     description:
         'The Guide to Processing Personnel Actions (GPPA) posted on this site is the most current version. Chapters of the GPPA are being revised on an ongoing basis.  As a chapter is revised, the date it was last updated is noted beside each chapter title. This document contains information on how to prepare and process personnel actions, Standard Form 52 (SF-52), and Standard Form 50 (SF-50).',
     github: 'https://github.com/code-gio/svelte-firekit-docs',
