@@ -5,3 +5,4 @@ export {default as Ch15remarks} from "./Ch15remarks.svelte";
 export {default as TreeDiagram} from "./TreeDiagram.svelte";
 export {default as RemarksTreeDiagram} from "./RemarksTreeDiagram.svelte";
 export {default as GHHRCh2Steps} from "./GHHRCh2Steps.svelte";
+export {default as SearchableTreeDiagram} from "./SearchableTreeDiagram.svelte";
