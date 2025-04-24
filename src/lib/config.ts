@@ -12,9 +12,9 @@ import type { Feature, PromoConfig, SiteConfig } from "./types/config";
 
 export const siteConfig: SiteConfig = {
     version: '0.0.1',
-    title: 'GPPA Documentation',
+    title: 'Guide to Processing Personnel Actions (GPPA)',
     description:
-        'Comprehensive documentation for your project. Built with Svelte 5, MDSvex, Tailwind CSS, and shadcn/ui components.',
+        'The Guide to Processing Personnel Actions (GPPA) posted on this site is the most current version. Chapters of the GPPA are being revised on an ongoing basis.  As a chapter is revised, the date it was last updated is noted beside each chapter title. This document contains information on how to prepare and process personnel actions, Standard Form 52 (SF-52), and Standard Form 50 (SF-50).',
     github: 'https://github.com/code-gio/svelte-firekit-docs',
     npm: '',
 
@@ -60,18 +60,18 @@ export const features: Feature[] = [
     },
     {
         icon: Workflow,
-        title: 'Secure Processing',
-        description: 'Cloud based deployment in secure environment'
+        title: 'Interactive Visualizations',
+        description: 'Interactive process tools help you find key information quickly and apply data to rea-world scenarios.'
     },
     {
         icon: Paintbrush,
-        title: 'GPPA Tools',
-        description: 'Interactive tools to enable access to specific personnel action steps and NOA codes.'
+        title: 'Modern Interface',
+        description: 'A more intuitive and modern interface to navigate the complex GPPA documentation.'
     },
     {
         icon: Zap,
-        title: 'Fast & Modern',
-        description: 'Powered by Svelte 5, MDSvex, and TailwindCSS for optimal performance and user experience'
+        title: 'Additional Features',
+        description: 'Better GPPA chapter navigation and full content searching to find what you need faster.'
     }
 ];
 

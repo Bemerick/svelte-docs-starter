@@ -27,7 +27,7 @@
 
 <div class="relative overflow-hidden">
 	<div class="relative mx-auto max-w-[85rem] px-4 pb-10 pt-24 sm:px-6 lg:px-8">
-		<!-- Version badge -->
+		<!-- Version badge
 		<div class="flex justify-center">
 			<a
 				href={siteConfig.github}
@@ -39,7 +39,7 @@
 					<ChevronRight class="size-4" />
 				</Badge>
 			</a>
-		</div>
+		</div>  -->
 
 		<!-- Title -->
 		<div class="mx-auto mt-5 max-w-2xl text-center">
@@ -78,7 +78,7 @@
 			{/if}
 		</div>
 
-		<!-- Quick Links -->
+		<!-- Quick Links 
 		<div class="mt-5 flex flex-wrap items-center justify-center gap-2">
 			<span class="text-sm text-gray-600 dark:text-neutral-400">Quick links:</span>
 			{#each siteConfig.quickLinks as link}
@@ -91,6 +91,6 @@
 					<span class="text-gray-300 dark:text-neutral-600">•</span>
 				{/if}
 			{/each}
-		</div>
+		</div> -->
 	</div>
 </div>
