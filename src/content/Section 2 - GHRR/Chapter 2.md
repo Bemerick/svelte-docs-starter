@@ -1,5 +1,5 @@
 ---
-title: GHHR Chapter 2
+title: GHRR Chapter 2
 description: Technical Compliance
 ---
 

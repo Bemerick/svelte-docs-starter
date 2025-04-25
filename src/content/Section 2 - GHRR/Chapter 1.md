@@ -1,6 +1,6 @@
 ---
-title: GHHR Chapter 1
-description: Overview of Guide to Personnel Action Processing (GPPA) Documentation
+title: GHRR Chapter 1
+description: Overview of Guide to Human Resources Reporting Documentation
 ---
 
 # Chapter 1: General Instructions
