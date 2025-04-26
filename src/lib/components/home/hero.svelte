@@ -52,31 +52,38 @@
 
 		<!-- Description -->
 		<div class="mx-auto mt-5 max-w-3xl text-left">
-			<p class="text-lg text-gray-600 dark:text-neutral-400">
+			<p class="text-gray-800 dark:text-neutral-400">
 				This toolkit contains OPM guides, manuals, and specifications required for federal HR
 				reporting, including:
 			</p>
-			<ul>
-				<li>
+			<ul class="flex flex-col items-center">
+				<li class="mb-4 w-[1000px] text-wrap">
+					<strong>Guide to Processing Personnel Actions (GPPA):</strong> The GPPA is OPM’s guidance for
+					federal agencies on how to prepare and process personnel actions for federal civilian employees.
+					It covers a wide range of HR actions, including hiring, promotions, transfers, separations,
+					and more. The GPPA uses various forms, including the Standard Form 52 (SF-52) and Standard
+					Form 50 (SF-50), to document and process these actions.
+				</li>
+				<li class="mb-4 w-[1000px] text-wrap">
 					<strong>Guide to Human Resources Reporting (GHRR):</strong> The GHRR is OPM’s guidance for
 					federal agencies on how to prepare and submit their HR, payroll, and training data to OPM.
 					This guide provides specific requirements for data collection and formatting, ensuring consistency
 					and accuracy in the data submitted.
 				</li>
-				<li>
+				<li class="mb-4 w-[1000px] text-wrap">
 					<strong>Guide to Personnel Recordkeeping (GRP):</strong> The GPR is OPM’s guidance for federal
 					agencies on how to establish, maintain, and transfer official personnel folders (OPFs) and
 					other personnel records. It outlines the required documentation for these records, including
 					the Standard Form 50 (Notification of Personnel Action) and the DD 214 (Certificate of Release
 					or Discharge from Active Duty.
 				</li>
-				<li>
+				<li class="mb-4 w-[1000px] text-wrap">
 					<strong>Guide to Data Standards (GDS):</strong> The GDS is OPM’s comprehensive reference for
 					federal agencies on how to accurately report and manage data related to human resources, payroll,
 					and training. It outlines standards for data elements, defines valid values, and specifies
 					how to report and maintain data integrity.
 				</li>
-				<li>
+				<li class="mb-4 w-[1000px] text-wrap">
 					<strong>Guide to Personnel Data File Edits:</strong> The Guide to Personnel Data File Edits
 					is OPM’s guidance for federal agencies to processes and validates data submitted by agencies
 					for the Central Personnel Data File (CPDF). It specifies how the CPDF system edits data received
