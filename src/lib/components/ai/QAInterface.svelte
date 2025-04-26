@@ -1,14 +1,45 @@
 <!-- components/QAInterface.svelte -->
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
+	import { processMarkdownContent, prepareForAI } from '$lib/utils/markdownLoader';
 
-	export let document;
-
+	let documents: any[] = [];
 	let question = '';
-	let answer = null;
+	let answer: string | null = null;
 	let isLoading = false;
-	let error = null;
-	let answerHistory = [];
+	let error: string | null = null;
+	let answerHistory: Array<{
+		id: string;
+		question: string;
+		answer: string;
+		timestamp: Date;
+	}> = [];
+
+	const SERVER_URL = 'http://localhost:3000';
+
+	onMount(async () => {
+		try {
+			const response = await fetch(`${SERVER_URL}/api/content`);
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			const markdownFiles = await response.json();
+			
+			for (const file of markdownFiles) {
+				const fileResponse = await fetch(file.url);
+				if (!fileResponse.ok) {
+					throw new Error(`Failed to fetch ${file.name}: ${fileResponse.status}`);
+				}
+				const content = await fileResponse.text();
+				const doc = processMarkdownContent(content, file.name);
+				await prepareForAI(doc);
+				documents = [...documents, doc];
+			}
+		} catch (err) {
+			console.error('Error loading markdown files:', err);
+			error = 'Failed to load documentation files.';
+		}
+	});
 
 	async function handleSubmit() {
 		if (!question.trim()) return;
@@ -17,11 +48,8 @@
 		error = null;
 
 		try {
-			// In a real implementation, this would call your backend API
-			// which would then use an AI service like OpenAI
-			const response = await queryAI(question, document);
+			const response = await queryAI(question, documents);
 
-			// Create a new QA pair for history
 			const newQAPair = {
 				id: Date.now().toString(),
 				question,
@@ -29,35 +57,30 @@
 				timestamp: new Date()
 			};
 
-			// Add to history
 			answerHistory = [newQAPair, ...answerHistory];
-
-			// Clear question field
-			question = '';
-
-			// Set the current answer
 			answer = response.answer;
+			question = '';
 		} catch (err) {
-			console.error('Error querying AI:', err);
-			error = 'Failed to get an answer. Please try again.';
+			console.error('Error getting answer:', err);
+			error = 'Failed to get answer from AI.';
 		} finally {
 			isLoading = false;
 		}
 	}
 
-	// Function to query the AI with the document context
-	async function queryAI(query, document) {
+	async function queryAI(query: string, documents: any[]) {
 		try {
-			// Make API call to our backend service
-			const response = await fetch('http://localhost:3000/api/query', {
+			const response = await fetch(`${SERVER_URL}/api/query`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
 					question: query,
-					documentChunks: document.chunks,
-					embeddings: document.embeddings || [] // In case embeddings exist
+					documents: documents.map(doc => ({
+						chunks: doc.chunks,
+						embeddings: doc.embeddings || []
+					}))
 				})
 			});
 
@@ -68,57 +91,57 @@
 			return await response.json();
 		} catch (error) {
 			console.error('Error calling AI service:', error);
-
-			// Fallback to local processing if API fails
-			return fallbackQueryProcessing(query, document);
+			return fallbackQueryProcessing(query, documents);
 		}
 	}
 
-	// Fallback processing in case the API call fails
-	function fallbackQueryProcessing(query, document) {
-		// Simple keyword matching for finding relevant chunks
+	function fallbackQueryProcessing(query: string, documents: any[]) {
 		const queryTerms = query.toLowerCase().split(/\s+/);
+		let relevantChunks: string[] = [];
 
-		const relevantChunks = document.chunks
-			.filter((chunk) => {
-				const chunkLower = chunk.toLowerCase();
-				// Check if any query term appears in the chunk
-				return queryTerms.some((term) => chunkLower.includes(term));
-			})
-			.slice(0, 3); // Limit to 3 most relevant chunks
+		for (const doc of documents) {
+			const docChunks = doc.chunks
+				.filter((chunk: string) => {
+					const chunkLower = chunk.toLowerCase();
+					return queryTerms.some((term) => chunkLower.includes(term));
+				})
+				.map((chunk: string) => `[From ${doc.name}] ${chunk}`);
+			
+			relevantChunks = [...relevantChunks, ...docChunks];
+		}
+
+		relevantChunks = relevantChunks.slice(0, 3);
 
 		if (relevantChunks.length === 0) {
 			return {
-				answer: "I couldn't find relevant information about that in the document.",
+				answer: "I couldn't find relevant information about that in any of the documents.",
 				sources: []
 			};
 		}
 
-		// Join relevant chunks for context
 		const context = relevantChunks.join(' ');
 
-		// Generate a simple response based on the query
 		let answer;
 		if (query.toLowerCase().includes('what')) {
-			answer = `Based on the document, ${context.slice(0, 200)}...`;
+			answer = `Based on the documents, ${context.slice(0, 200)}...`;
 		} else if (query.toLowerCase().includes('how')) {
-			answer = `The document explains that ${context.slice(0, 200)}...`;
+			answer = `The documentation explains that ${context.slice(0, 200)}...`;
 		} else if (query.toLowerCase().includes('why')) {
-			answer = `According to the document, ${context.slice(0, 200)}...`;
+			answer = `According to the documents, ${context.slice(0, 200)}...`;
 		} else {
-			answer = `The document states: "${context.slice(0, 200)}..."`;
+			answer = `The documentation states: "${context.slice(0, 200)}..."`;
 		}
 
 		return {
 			answer,
-			sources: relevantChunks.map((_, index) => `Chunk ${index + 1}`)
+			sources: relevantChunks.map((chunk) => chunk.split(']')[0] + ']')
 		};
 	}
 </script>
 
 <div class="qa-interface flex h-full flex-col">
 	<h2 class="sticky top-0 z-10 mb-4 border-b bg-white py-2 text-xl font-semibold">
-		Ask Questions About This Document
+		Ask Questions About the Documentation
 	</h2>
 
 	<form on:submit|preventDefault={handleSubmit} class="sticky top-14 z-10 mb-4 bg-white pb-2">
@@ -126,7 +149,7 @@
 			<input
 				type="text"
 				bind:value={question}
-				placeholder="Ask a question about the document..."
+				placeholder="Ask a question about the documentation..."
 				class="flex-grow rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
 				disabled={isLoading}
 			/>
